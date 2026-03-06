@@ -1,7 +1,15 @@
 {
-  "name": "personal-site",
+  "name": "natalia-portfolio",
   "type": "module",
   "version": "0.0.1",
-  "scripts": { "build": "astro build" },
-  "dependencies": { "astro": "latest" }
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "latest"
+  }
 }
