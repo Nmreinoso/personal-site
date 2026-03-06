@@ -1,33 +1,40 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+
+// We have to define these again so the page can find them!
+const name = "Natalia";
+const education = "William & Mary, Economics Major";
+
+// This finds your blog posts automatically
 const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
 ---
 
-<MainLayout title="Home">
-    <h1>Hi, I'm Natalia 👋</h1>
-    <p>Economics student at William & Mary. I love lifting and great music.</p>
+<MainLayout title="Home | Natalia">
+    <section style="margin-bottom: 3rem;">
+        <h1>Hi, I'm {name} 👋</h1>
+        <p style="font-size: 1.2rem; color: #555;">
+            {education}. I’m building this space to share my journey in economics, lifting, and everything in between.
+        </p>
+    </section>
 
     <hr />
 
-    <h2>Latest Posts</h2>
-    <div class="grid">
-        {allPosts.map(post => (
-            <article>
-                <header>{post.frontmatter.title}</header>
-                <p>Reading time: 2 mins</p>
-                <footer>
-                    <a href={post.url} role="button" class="outline">Read Post</a>
-                </footer>
-            </article>
-        ))}
-    </div>
+    <section>
+        <h2 style="margin-bottom: 1.5rem;">Latest Blog Posts</h2>
+        <div class="grid">
+            {allPosts.map((post: any) => (
+                <article style="border: 1px solid #ff8fab33; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                    <header>
+                        <strong style="color: #ff8fab;">{post.frontmatter.title}</strong>
+                    </header>
+                    <p>{post.frontmatter.description || "Click below to read my latest update..."}</p>
+                    <footer>
+                        <a href={post.url} role="button" class="outline" style="border-color: #ff8fab; color: #ff8fab;">
+                            Read More
+                        </a>
+                    </footer>
+                </article>
+            ))}
+        </div>
+    </section>
 </MainLayout>
-        <p><strong>Education:</strong> {education}</p>
-    </div>
-
-    <h2>My Interests</h2>
-    <ul>
-        {interests.map((item) => <li>{item}</li>)}
-    </ul>
-</body>
-</html>
