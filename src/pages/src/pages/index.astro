@@ -1,0 +1,26 @@
+---
+const name = "Natalia";
+const education = "William & Mary, Economics Major";
+const interests = ["Lifting", "Movies", "Music"];
+---
+<html lang="en">
+<head>
+    <title>{name}'s Home</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 2rem; line-height: 1.6; }
+        nav { margin-bottom: 2rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; }
+        nav a { margin-right: 1rem; text-decoration: none; color: blue; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/Blog/">Home</a>
+        <a href="/Blog/resume">Resume</a>
+        <a href="/Blog/posts/hello">Blog Post</a>
+    </nav>
+    <h1>Hi, I'm {name} 👋</h1>
+    <p><strong>Education:</strong> {education}</p>
+    <h2>Interests</h2>
+    <ul>{interests.map(i => <li>{i}</li>)}</ul>
+</body>
+</html>
